@@ -11,7 +11,6 @@ export class CategoriesRepository extends BaseRepository<
   constructor() {
     super('category');
   }
-
 }
 
 export const categoriesRepository = new CategoriesRepository();

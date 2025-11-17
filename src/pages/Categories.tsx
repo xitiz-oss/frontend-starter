@@ -1,16 +1,15 @@
-
-import { useGetAllCategories } from "@/infrastructure/queries/categories.query";
-import type { Category } from "@/infrastructure/types/category";
-import type { Column } from "@/infrastructure/types/table";
-import { categoryTableColumns } from "@/utils/columns/categoriesColumns";
+import { useGetAllCategories } from '@/infrastructure/queries/categories.query';
+import type { Category } from '@/infrastructure/types/category';
+import type { Column } from '@/infrastructure/types/table';
+import { categoryTableColumns } from '@/utils/columns/categoriesColumns';
 // import useModal from "@/hooks/useModal";
 // import { queryClient } from "@/lib/clients/queryClient";
 // import { QUERY_CATEGORIES_KEY } from "@/constants/query.constant";
 // import { Spinner } from "@/components/ui/SpinLoader";
 // import { confirmAndMutate } from "@/utils/adminHelpers/confirmationUtil";
-import useTable from "@/hooks/useTable";
-import DataTable from "@/components/ui/custom/DataTable";
-import useModal from "@/hooks/useModal";
+import useTable from '@/hooks/useTable';
+import DataTable from '@/components/ui/custom/DataTable';
+import useModal from '@/hooks/useModal';
 
 const Categories = () => {
   const {
@@ -28,12 +27,12 @@ const Categories = () => {
   });
 
   const [isAddModalOpen, toggleAddModal] = useModal();
-//   const [isViewModalOpen, toggleViewModal] = useModal();
-//   const [isEditModalOpen, toggleEditModal] = useModal();
-//   const [editingCategoryId, setEditingCategoryId] = useState<string | null>(
-//     null
-//   );
-//   const [viewCategoryId, setViewCategoryId] = useState<string | null>(null);
+  //   const [isViewModalOpen, toggleViewModal] = useModal();
+  //   const [isEditModalOpen, toggleEditModal] = useModal();
+  //   const [editingCategoryId, setEditingCategoryId] = useState<string | null>(
+  //     null
+  //   );
+  //   const [viewCategoryId, setViewCategoryId] = useState<string | null>(null);
 
   const categoriesPerPage = 10;
 
@@ -47,15 +46,15 @@ const Categories = () => {
 
   const totalPages = data?.totalPages ?? 1;
   const categories = data?.result ?? [];
-  
+
   const callbacks = {
     view: (id: string) => {
-    //   setViewCategoryId(id);
-    //   toggleViewModal();
+      //   setViewCategoryId(id);
+      //   toggleViewModal();
     },
     edit: (id: string) => {
-    //   setEditingCategoryId(id);
-    //   toggleEditModal();
+      //   setEditingCategoryId(id);
+      //   toggleEditModal();
     },
   };
 
@@ -83,8 +82,6 @@ const Categories = () => {
           onSortChange={setOrderBy}
         />
       </div>
-
-    
     </div>
   );
 };

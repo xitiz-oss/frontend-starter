@@ -1,10 +1,10 @@
-import { Search } from "lucide-react";
-import type { SearchInputProps } from "@/infrastructure/types/table";
-import { useEffect, useState } from "react";
-import { Input } from "@/components/ui/input";
+import { Search } from 'lucide-react';
+import type { SearchInputProps } from '@/infrastructure/types/table';
+import { useEffect, useState } from 'react';
+import { Input } from '@/components/ui/input';
 
 const SearchInput = ({ search, onChange }: SearchInputProps) => {
-  const [inputValue, setInputValue] = useState(search || "");
+  const [inputValue, setInputValue] = useState(search || '');
 
   useEffect(() => {
     const handler = setTimeout(() => {

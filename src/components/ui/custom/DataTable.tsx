@@ -1,5 +1,5 @@
-import type { TableProps } from "@/infrastructure/types/table";
-import { useState, type ReactNode } from "react";
+import type { TableProps } from '@/infrastructure/types/table';
+import { useState, type ReactNode } from 'react';
 import {
   Table,
   TableBody,
@@ -7,7 +7,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "../../ui/table";
+} from '../../ui/table';
 import {
   ChevronLeft,
   ChevronRight,
@@ -15,11 +15,11 @@ import {
   ArrowUpAZ,
   ArrowDownZA,
   ArrowDownUp,
-} from "lucide-react";
-import SearchInput from "./SearchInput";
-import { Spinner } from "./SpinLoader";
+} from 'lucide-react';
+import SearchInput from './SearchInput';
+import { Spinner } from './SpinLoader';
 // import FilterComponent from "./FilterComponent";
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 
 function DataTable<T extends { id: string | number }>({
   title,
@@ -41,7 +41,7 @@ function DataTable<T extends { id: string | number }>({
 }: TableProps<T>) {
   const [selected, setSelected] = useState(0);
   const [sortColumn, setSortColumn] = useState<string | null>(null);
-  const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
 
   const [activeFilters, setActiveFilters] = useState<
     Record<string, string | number | boolean | string[]>
@@ -55,10 +55,10 @@ function DataTable<T extends { id: string | number }>({
   };
 
   const handleSort = (accessor: string) => {
-    let newOrder: "asc" | "desc" = "asc";
+    let newOrder: 'asc' | 'desc' = 'asc';
 
-    if (sortColumn === accessor && sortOrder === "asc") {
-      newOrder = "desc";
+    if (sortColumn === accessor && sortOrder === 'asc') {
+      newOrder = 'desc';
     }
 
     setSortColumn(accessor);
@@ -99,7 +99,7 @@ function DataTable<T extends { id: string | number }>({
           )} */}
 
           <SearchInput
-            search={search || ""}
+            search={search || ''}
             onChange={(val: string) => {
               setSearch?.(val);
               // onPageChange?.(1);
@@ -131,15 +131,15 @@ function DataTable<T extends { id: string | number }>({
                   <div
                     className={`flex-align-center ${
                       col.sortable
-                        ? "cursor-pointer hover:bg-gray-50 rounded-md px-1"
-                        : ""
+                        ? 'cursor-pointer hover:bg-gray-50 rounded-md px-1'
+                        : ''
                     }`}
                   >
                     <span>{col.header}</span>
                     {col.sortable && (
                       <>
                         {sortColumn === col.accessor ? (
-                          sortOrder === "asc" ? (
+                          sortOrder === 'asc' ? (
                             <ArrowUpAZ className="size-4 text-primary" />
                           ) : (
                             <ArrowDownZA className="size-4 text-primary" />
@@ -174,14 +174,14 @@ function DataTable<T extends { id: string | number }>({
                     >
                       {columns.map((col, colIdx) => {
                         const value: ReactNode =
-                          typeof col.accessor === "function"
+                          typeof col.accessor === 'function'
                             ? col.accessor(row, rowIndex)
                             : (row[col.accessor] as unknown as ReactNode);
 
                         return (
                           <TableCell
                             key={colIdx}
-                            className={`py-2 px-4 ${col.cellClassName || ""}`}
+                            className={`py-2 px-4 ${col.cellClassName || ''}`}
                           >
                             {value}
                           </TableCell>
