@@ -14,33 +14,10 @@
   --color-primary-muted: #808082;
   --color-accent: #fbe580;
   --color-bg: #ffffff;
-
-  /* Typography Sizes */
-  --font-size-display: 48px;
-  --font-size-title: 32px;
-  --font-size-heading: 24px;
-  --font-size-subheading: 20px;
-  --font-size-body: 16px;
-  --font-size-body-sm: 14px;
-  --font-size-caption: 12px;
-
-  /* Line Heights */
-  --line-height-xxl: 56px;
-  --line-height-xl: 40px;
-  --line-height-base: 26px;
-  --line-height-sm: 20px;
 }
 
 @utility flex-align-center {
   @apply flex justify-between items-center;
-}
-
-@utility heading-text {
-  @apply text-size-title font-heading font-semibold;
-}
-
-@utility base-text {
-  @apply text-size-body font-base font-semibold;
 }
 
 @utility full-image {

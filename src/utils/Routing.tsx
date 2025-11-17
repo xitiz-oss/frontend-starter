@@ -5,22 +5,30 @@ import {
   Routes,
 } from 'react-router-dom';
 
-// const BaseLayout = () => {
-//   return (
-//     <div className="bg-background/95">
-//       <Navbar />
-//       <main className="">
-//         <Outlet />
-//       </main>
-//       <Footer />
-//     </div>
-//   );
-// };
+import Dashboard from '@/pages/Dashboard';
+import Categories from '@/pages/Categories';
+
+const BaseLayout = () => {
+  return (
+    <div className="bg-background/95 w-screen h-screen">
+      {/* <Navbar /> */}
+      <main className="">
+        <Outlet />
+      </main>
+      {/* <Footer /> */}
+    </div>
+  );
+};
 
 const Routing = () => {
   return (
     <Router>
-      <Routes></Routes>
+      <Routes>
+        <Route path="/" element={<BaseLayout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/categories" element={<Categories />} />
+        </Route>
+      </Routes>
     </Router>
   );
 };
